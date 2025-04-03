@@ -1,22 +1,26 @@
-import streamlit as st
 import os
+import streamlit as st
 
+# Check the directory contents
+dir_path = os.path.dirname(__file__)
+files_in_dir = os.listdir(dir_path)
 
-# Loading external CSS
+st.write("Files in directory:", files_in_dir)
+
+file_path = os.path.join(dir_path, "styles.css")
+if os.path.exists(file_path):
+    st.write("styles.css found!")
+else:
+    st.write("styles.css NOT found!")
+
+# Load CSS if found
 def load_css(file_name):
-    css_path = os.path.join(os.path.dirname(__file__), "styles.css")
-    if os.path.exists(css_path):
-      st.write("styles.css found!")
-    else:
-      st.write("styles.css NOT found!")
     with open(file_name, "r") as f:
-        css = f.read()
-    return f"<style>{css}</style>"
+        return f"<style>{f.read()}</style>"
 
-
-# Applying CSS styles
-st.markdown(load_css("styles.css"), unsafe_allow_html=True)
-
+# Try applying styles if the file exists
+if os.path.exists(file_path):
+    st.markdown(load_css(file_path), unsafe_allow_html=True)
 
 st.title("AuraLens")
 st.write("This app analyzes emotions in tweets!")

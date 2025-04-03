@@ -3,23 +3,31 @@ import streamlit as st
 # Defining inline CSS
 inline_css = """
 <style>
-    body {
-        background-color: #f0f8ff;  /* Soft Blue */
-        font-family: Arial, sans-serif;
+    [data-testid="stAppViewContainer"] {
+        background-color: #f0f8ff !important;
     }
-    .stTitle {
-        color: #4a4a8a;  /* Dark Blue for Title */
-        text-align: center;
+
+    [data-testid="stApp"] {
+        background-color: #f0f8ff !important;
     }
-    .stText {
-        color: #5a5a5a;  /* Slightly Gray for Text */
-        text-align: center;
+
+    h1 {
+        color: #4a4a8a !important;  
+        text-align: center !important;
+    }
+
+    p {
+        color: #5a5a5a !important;
+        text-align: center !important;
     }
 </style>
 """
 
-# Apply CSS inline
+
+# Applying CSS inline
 st.markdown(inline_css, unsafe_allow_html=True)
 
+
+#Frontend View
 st.title("AuraLens")
 st.write("This app analyzes emotions in tweets!")

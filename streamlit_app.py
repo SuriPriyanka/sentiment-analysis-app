@@ -4,15 +4,15 @@ import streamlit as st
 inline_css = """
 <style>
     [data-testid="stAppViewContainer"] {
-        background-color: #f0f8ff !important;
+        background-color: #E3F2FD !important;
     }
 
     [data-testid="stApp"] {
-        background-color: #f0f8ff !important;
+        background-color: #E3F2FD !important;
     }
 
     h1 {
-        color: #4a4a8a !important;  
+        color: #673AB7 !important;  
         text-align: center !important;
     }
 

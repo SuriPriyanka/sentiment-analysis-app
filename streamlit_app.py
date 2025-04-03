@@ -1,22 +1,25 @@
-import os
 import streamlit as st
 
-# Get the absolute path of styles.css
-file_path = os.path.join(os.path.dirname(__file__), "styles.css")
+# Defining inline CSS
+inline_css = """
+<style>
+    body {
+        background-color: #f0f8ff;  /* Soft Blue */
+        font-family: Arial, sans-serif;
+    }
+    .stTitle {
+        color: #4a4a8a;  /* Dark Blue for Title */
+        text-align: center;
+    }
+    .stText {
+        color: #5a5a5a;  /* Slightly Gray for Text */
+        text-align: center;
+    }
+</style>
+"""
 
-# Debugging: Check if the file exists
-if os.path.isfile(file_path):
-    st.write("styles.css found!")
-else:
-    st.write("styles.css NOT found!")
-
-# Load CSS only if the file exists
-def load_css(path):
-    with open(path, "r") as f:
-        return f"<style>{f.read()}</style>"
-
-if os.path.isfile(file_path):
-    st.markdown(load_css(file_path), unsafe_allow_html=True)
+# Apply CSS inline
+st.markdown(inline_css, unsafe_allow_html=True)
 
 st.title("AuraLens")
 st.write("This app analyzes emotions in tweets!")
